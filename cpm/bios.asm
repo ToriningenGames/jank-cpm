@@ -49,9 +49,9 @@ Boot:
   JP nz,-
 ;Init Low Storage
   LD HL,0
-  LD (HL),<BIOSSTART
+  LD (HL),<BIOSSTART+3
   INC L
-  LD (HL),>BIOSSTART+3
+  LD (HL),>BIOSSTART
   INC L
   LD (HL),0     ;IO byte
   INC L
@@ -190,6 +190,7 @@ WriteSector:
   RET
 
 ParamBlock:
+.ENDASM
 ;Space for the Disk Parameter Header
 .DSB 16
 DriveBlock:
@@ -198,5 +199,6 @@ DriveBlock:
 VectorBlock:
 ;Space for the Allocation Vector
 .DSB 256
+.ASM
 
 .DEFINE BIOSSIZE $-BIOSSTART
