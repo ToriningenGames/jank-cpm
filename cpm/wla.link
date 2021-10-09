@@ -1,2 +1,5 @@
 [objects]
-hello.obj
+boot.obj
+bios.obj
+bdos.obj
+ccp.obj
