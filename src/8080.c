@@ -227,6 +227,12 @@ void decode()
                 cpu.h = memory[cpu.ip++];
                 return;
         case 0x27:      //DAA
+                if (cpu.aux || cpu.a & 0x0F > 9) {
+                        cpu.a -= 10;
+                }
+                if (cpu.carry || cpu.a & 0xF0 > 0x90) {
+                        cpu.a -= 0xA0;
+                }
                 return;
         case 0x29:      //ADD HL,HL
                 addr = cpu.hl;
