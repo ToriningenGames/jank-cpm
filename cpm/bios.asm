@@ -87,10 +87,10 @@ ConIn:
   OR A
   JP z,ConIn
   LD A,($0040)
-  LD C,A
+  LD L,A
   LD A,$FF
   LD ($0040),A
-  LD A,C
+  LD A,L
   RET
 
 ConOut:
